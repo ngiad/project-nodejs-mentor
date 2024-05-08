@@ -7,14 +7,7 @@ class ProductsController {
             const respose = await ProductServices.getProducts(req.query.category)
             res.status(respose.meta.statusCode || 200).json(respose)
         } catch (error) {
-            res.status(400).json({
-                meta: {
-                    success: false,
-                    error: error,
-                    code: "01"
-                },
-                data: null
-            })
+            next({message : error.message,code : "01",statusCode : 400})
         }
     }
 
@@ -23,14 +16,7 @@ class ProductsController {
             const respose = await ProductServices.getProductDetail(req.params.id)
             res.status(respose.meta.statusCode || 200).json(respose)
         } catch (error) {
-            res.status(400).json({
-                meta: {
-                    success: false,
-                    error: error,
-                    code: "01"
-                },
-                data: null
-            })
+            next({message : error.message,code : "01",statusCode : 400})
         }
     }
 
@@ -40,14 +26,7 @@ class ProductsController {
             const respose = await ProductServices.searchProduct(req.query.title)
             res.status(respose.meta.statusCode || 200).json(respose)
         } catch (error) {
-            res.status(400).json({
-                meta: {
-                    success: false,
-                    error: error,
-                    code: "01"
-                },
-                data: null
-            })
+            next({message : error.message,code : "01",statusCode : 400})
         }
     }
 }

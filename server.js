@@ -18,6 +18,20 @@ app.use("/css",express.static(path.join(__dirname, 'styles')))
 app.use("/api",indexRouter)
 
 
+app.use((err,req,res,next) =>{
+    const statusCode = err.statusCode || 500
+    const code = err.code || "01"
+    return res.status(statusCode).json({
+        meta: {
+            success: false,
+            error: err.message,
+            code
+        },
+        data: null
+    })
+})
+
+
 connectMongodb(process.env.CONNECTSTRING).then((data) => {
     console.log(data.message)
     app.listen(PORT,() => console.log("server is running on PORT :", PORT))
