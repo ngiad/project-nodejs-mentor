@@ -1,8 +1,9 @@
 import { Router } from "express";
 import ProductsController from "../controllers/products.controller.js"
+import { wrap } from "../helper/wrapController.js";
 
 const productsRouter = Router()
-const { getProducts, getProductDetail,searchProduct } = new ProductsController()
+const { getProducts, getProductDetail,searchProduct } = wrap(new ProductsController()) 
 
 
 productsRouter.get("/", getProducts)

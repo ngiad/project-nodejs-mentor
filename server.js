@@ -21,6 +21,8 @@ app.use("/api",indexRouter)
 app.use((err,req,res,next) =>{
     const statusCode = err.statusCode || 500
     const code = err.code || "01"
+
+    if(err.message.includes("Cast to ObjectId failed for value")) err.message = "Notfound!"
     return res.status(statusCode).json({
         meta: {
             success: false,
