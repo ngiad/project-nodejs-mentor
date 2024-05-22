@@ -1,0 +1,94 @@
+.content{
+    padding: 80px 0;
+}
+
+
+.category_products .name_category{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.category_products .name_category p{
+    font-weight: 400;
+    font-size: 18px;
+    font-family: var(--font--header);
+    padding: 5.5px 0;
+}
+
+.category_products .name_category a{
+    font-size: 13px;
+    font-family: var(--font--content);
+    cursor: pointer;
+}
+
+.category_products .products{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 40px 0;
+}
+
+
+.category_products .products div{
+    width: calc((100%/3) - 40px);
+}
+
+.icon-link-to{
+    transform: rotate(-40deg);
+    transition: all 0.3s ease-in-out;
+}
+
+
+.category_products .name_category a:hover .icon-link-to{
+    transform: rotate(0deg);
+}
+
+.category_products .products div .top{
+    width: 100%;
+    height: 550px;
+}
+
+.category_products .products div .image-container{
+    width: 100%;
+    height: 550px;
+    position: relative;
+    border-radius: 8px;
+}
+
+.category_products .products div .image-container img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.category_products .products div .infor{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px 0;
+    font-family: var(--font--content);
+}
+
+.category_products .products div .infor div{
+    display: flex;
+    width: 160px;
+    gap: 20px;
+    justify-content: flex-end;
+}
+
+
+.category_products .products div .infor div span{
+    color: rgb(212, 68, 68);
+    text-decoration: line-through;
+    font-size: 13px;
+}
+
+.category_products .products div .infor div p{
+    color: rgb(87, 110, 199);
+    font-weight: bold;
+}

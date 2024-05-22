@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <!-- header -->
@@ -31,9 +34,14 @@
             </div>
         </header>
     </div>
-    
+
     <div class="content">
-        <div>
+        <div class="category_products">
+            <div class="name_category">
+                <p>Túi Sách</p>
+                <a href="#">View all <i class="fa-solid fa-arrow-right icon-link-to"></i></a>
+            </div>
+
             <script id="clothes_handBag" data-category="túi xách">
                 const eleScriptHandBag = document.querySelector("#clothes_handBag")
                 const eleParentHandBag = eleScriptHandBag.parentElement
@@ -42,11 +50,12 @@
                     try {
                         const res = await fetch(`/api/products?category=${eleScriptHandBag.getAttribute("data-category")}`)
                         const data = await res.json()
+                        console.log(data);
                        
                         if(data) {
-                            eleParentHandBag.innerHTML += `<div>
+                            eleParentHandBag.innerHTML += `<div class="products">
                                     ${
-                                        data.listProducts.map((item) => `<div>
+                                        data.map((item) => `<div>
                                                 <div class="top">
                                                     <div class="image-container"> 
                                                         <img src="${item.image_bg}" alt="${item.title}"/>
@@ -55,8 +64,10 @@
 
                                                 <div class="infor">
                                                     <p>${item.title}</p>
-                                                    <p>${item.total_price} đ</p>
-                                                    <span>${item.origin} đ</span>
+                                                    <div>
+                                                        <span>${item.price_origin} đ</span>
+                                                        <p>${item.price_origin - ((item.price_origin /100)*item.sale)} đ</p>      
+                                                    </div>
                                                 </div>
                                             </div>`)
                                     }
@@ -69,80 +80,7 @@
 
                 getProductsCategoryHandBag()
             </script>   
-        </div>
-        <div>
-            <script id="clothes_dresses" data-category="váy đầm">
-                const eleScriptDresses = document.querySelector("#clothes_dresses")
-                const eleParentDresses = eleScriptDresses.parentElement
-
-                const getProductsCategoryDresses = async() => {
-                    try {
-                        const res = await fetch(`/api/products?category=${eleScriptDresses.getAttribute("data-category")}`)
-                        const data = await res.json()
-                       
-                        if(data) {
-                            eleParentDresses.innerHTML += `<div>
-                                    ${
-                                        data.listProducts.map((item) => `<div>
-                                                <div class="top">
-                                                    <div class="image-container"> 
-                                                        <img src="${item.image_bg}" alt="${item.title}"/>
-                                                    </div>    
-                                                </div>
-
-                                                <div class="infor">
-                                                    <p>${item.title}</p>
-                                                    <p>${item.total_price} đ</p>
-                                                    <span>${item.origin} đ</span>
-                                                </div>
-                                            </div>`)
-                                    }
-                                </div>`
-                        }
-                    } catch (error) {
-                        console.log("error",error)
-                    }
-                }
-
-                getProductsCategoryDresses()
-            </script>   
-        </div>
-        <div>
-            <script id="clothes_Footwear" data-category="giày dép">
-                const eleScriptFootwear = document.querySelector("#clothes_Footwear")
-                const eleParentFootwear = eleScriptFootwear.parentElement
-
-                const getProductsCategoryFootwear = async() => {
-                    try {
-                        const res = await fetch(`/api/products?category=${eleScriptFootwear.getAttribute("data-category")}`)
-                        const data = await res.json()
-                       
-                        if(data) {
-                            eleParentFootwear.innerHTML += `<div>
-                                    ${
-                                        data.listProducts.map((item) => `<div>
-                                                <div class="top">
-                                                    <div class="image-container"> 
-                                                        <img src="${item.image_bg}" alt="${item.title}"/>
-                                                    </div>    
-                                                </div>
-
-                                                <div class="infor">
-                                                    <p>${item.title}</p>
-                                                    <p>${item.total_price} đ</p>
-                                                    <span>${item.origin} đ</span>
-                                                </div>
-                                            </div>`)
-                                    }
-                                </div>`
-                        }
-                    } catch (error) {
-                        console.log("error",error)
-                    }
-                }
-
-                getProductsCategoryFootwear()
-            </script>   
+            
         </div>
     </div>
 
