@@ -1,63 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="/css/global.css">
-    <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/footer.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <script src="/scripts/getProductsCategory.js"></script>
-</head>
-<body>
+  </head>
+
+  <body>
     <!-- header -->
     <div class="header">
-        <header class="content header-container text-title">
-            <div class="menu-header">
-                <button class="text-title hover-header">Menu</button>
-            </div>
-            <div class="logo-header">
-                <div class="container-image">
-                    <img src="" alt="logo">
-                </div>
-            </div>
-            <div class="navbar-header">
-                <ul>
-                    <li class="hover-header"><a href="/search.html">Search</a></li>
-                    <li class="hover-header"><a href="/account.html">Account</a> </li>
-                    <li class="hover-header" id="cart_number"><a href="/cart.html">Cart</a></li>
-                </ul>
-            </div>
-        </header>
+      <header class="content header-container text-title">
+        <div class="menu-header">
+          <button class="text-title hover-header">Menu</button>
+        </div>
+        <div class="logo-header">
+          <div class="container-image">
+            <img src="" alt="logo" />
+          </div>
+        </div>
+        <div class="navbar-header">
+          <ul>
+            <li class="hover-header"><a href="/search.html">Search</a></li>
+            <li class="hover-header"><a href="/account.html">Account</a></li>
+            <li class="hover-header" id="cart_number">
+              <a href="/cart.html">Cart</a>
+            </li>
+          </ul>
+        </div>
+      </header>
     </div>
 
     <div class="content">
-        <div class="category_products">
-            <div class="name_category">
-                <p>Túi Sách</p>
-                <a href="#">View all <i class="fa-solid fa-arrow-right icon-link-to"></i></a>
-            </div>
-
-            <script id="clothes_handBag" data-category="túi xách">
-                const eleScriptHandBag = document.querySelector("#clothes_handBag")
-                const eleParentHandBag = eleScriptHandBag.parentElement
-                getProductsCategory("túi xách",eleParentHandBag)
-            </script>   
-            
+      <div class="category_products">
+        <div class="name_category">
+          <p>Túi Sách</p>
+          <a href="#"
+            >View all <i class="fa-solid fa-arrow-right icon-link-to"></i
+          ></a>
         </div>
+
+        <script id="clothes_handBag" data-category="túi xách">
+          getProductsCategory(
+            document
+              .querySelector("#clothes_handBag")
+              .getAttribute("data-category"),
+            document.querySelector("#clothes_handBag").parentElement
+          );
+        </script>
+      </div>
     </div>
 
     <div class="footer">
-        <footer>
-            @by : TRAN DAI NGHIA
-        </footer>
+      <footer>@by : TRAN DAI NGHIA</footer>
     </div>
-</body>
+  </body>
 </html>
