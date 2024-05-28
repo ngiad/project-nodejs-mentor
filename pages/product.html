@@ -8,10 +8,12 @@
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/global.css">
     <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/product.css" />
+    <script src="/scripts/getIdProduct.js"></script>
+    <script src="/scripts/renderProductDetail.js"></script>
 </head>
 
 <body>
-
     <!-- header -->
     <div class="header">
         <header class="content header-container text-title">
@@ -33,9 +35,24 @@
         </header>
     </div>
 
-    <div class="products">
-            
+    <div class="content">
+        <div class="tag">
+            <h3>
+                <a href="/" style="color: black;">Trang chủ</a> / <span id="sanpham"></span>
+            </h3>
+        </div>
+        <div class="product_container">
+            <script id="product_id">
+                renderProductDetail(getIDProduct(), document.querySelector("#product_id").parentElement, document.querySelector("#sanpham"))
+            </script>
+        </div>
+
+        <div class="related_products">
+
+        </div>
+
     </div>
+
 
 
     <div class="footer">

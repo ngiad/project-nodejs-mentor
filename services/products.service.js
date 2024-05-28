@@ -2,13 +2,13 @@ import  {  ValidationEmpty } from "../core/response.error.js";
 import { Ok, SuccessResponse } from "../core/response.success.js";
 import ProductModel from "../models/product.model.js";
 
-
 class ProductServices {
   getProducts = async (category) => {
     const query = category ? { category } : {};
     const data = await ProductModel.find(query);
     return new Ok(data);
   };
+
 
   getProductDetail = async (id) => {
     if (!id) throw new ValidationEmpty("id empty!");
