@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <label for="username"> tên tai khoản </label>
+        <input type="text" id="username" name="username" />
+        <label for="password"> mật khẩu </label>
+        <input type="text" id="password" name="password" />
+        <label for="isSavePassword">
+            Lưu tài khoản
+            <input name="isSavePassword" type="checkbox" />
+        </label>
+        <button>Đăng nhập</button>
+    </form>
+
+    <script>
+        const form = document.querySelector("form");
+        form.onsubmit = async (e) => {
+            e.preventDefault();
+            const dataForm = new FormData(e.currentTarget);
+            const username = dataForm.get("username");
+            const password = dataForm.get("password");
+            const isSaveAccount = dataForm.get("isSavePassword");
+
+            const response = await fetch("/api/auth/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    username,
+                    password,
+                    isSaveAccount: isSaveAccount === "on" ? true : false,
+                }),
+            });
+            console.log(await response.json());
+        };
+    </script>
+</body>
+
+</html>

@@ -28,7 +28,7 @@ const getProductsCategory = async (category, eleParent) => {
                                 </div>
                                 </a>
                             </div>`
-                    )}
+                    ).join("")}
                 </div>`;
     }
   } catch (error) {

@@ -3,7 +3,6 @@ async function renderProductDetail(id, eleParent, eleName) {
     const res = await fetch(`/api/products/${id}`);
     const data = await res.json();
     if (data.meta.success) {
-      console.log(data.data);
       const { category, image_bg, imagesDetail, price_origin, sale, title } =
         data.data;
       const galleryImages = [image_bg, ...imagesDetail];

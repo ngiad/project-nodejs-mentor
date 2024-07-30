@@ -21,7 +21,11 @@ const ProductSchema = mongoose.Schema({
         type : String,
         required : true
     },
-    imagesDetail : []
+    imagesDetail : [],
+    description : {
+        type : String,
+        default : ""
+    }
 },{
     timestamps :  true
 })

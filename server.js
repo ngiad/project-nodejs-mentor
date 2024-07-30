@@ -11,6 +11,8 @@ Dotenv.config()
 const app = express()
 const PORT = process.env.PORT || 3000
 
+app.use(express.json())
+
 app.use("/images",express.static(path.join(__dirname,'image')));
 app.use("/",express.static(path.join(__dirname, 'pages')))
 app.use("/css",express.static(path.join(__dirname, 'styles')))
@@ -27,7 +29,7 @@ app.use((err,req,res,next) =>{
     return res.status(statusCode).json({
         meta: {
             success: false,
-            error: err.message,
+            error: err?.message ?? "Error",
             code
         },
         data: null
@@ -37,7 +39,7 @@ app.use((err,req,res,next) =>{
 
 connectMongodb(process.env.CONNECTSTRING).then((data) => {
     console.log(data.message)
-    app.listen(PORT,() => console.log("server is running on PORT :", PORT))
+    app.listen(PORT,() => console.log(`running on http://localhost:${PORT}/`))
 })
 .catch((err) => {
     console.log(err)

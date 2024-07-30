@@ -1,4 +1,4 @@
-import  {  ValidationEmpty } from "../core/response.error.js";
+import  {  BadRequest, ValidationEmpty } from "../core/response.error.js";
 import { Ok, SuccessResponse } from "../core/response.success.js";
 import ProductModel from "../models/product.model.js";
 

@@ -92,3 +92,13 @@
     color: rgb(87, 110, 199);
     font-weight: bold;
 }
+
+.products > div > a{
+    transition: all 0.5s ease-in-out;
+    box-shadow: #0000004f 0px 0px 0px;
+    border-radius: 8px;
+}
+
+.products > div > a :hover{
+    box-shadow: #0000004f 0px 3px 8px;
+}
